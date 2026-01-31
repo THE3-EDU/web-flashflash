@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { TextureLoader } from 'three';
 import { OrbitControls } from '@react-three/drei';
@@ -156,7 +156,7 @@ function DirectImages({
     });
 
     // 点击事件处理
-    const handleClick = (event: any) => {
+    const handleClick = (event: ThreeEvent<MouseEvent>) => {
       event.stopPropagation();
       console.log('图片被点击了！', img.src, '→', img.url); // 调试信息
       if (img.url && onImageClick) {
@@ -166,7 +166,7 @@ function DirectImages({
     };
 
     // 添加鼠标按下事件作为备用
-    const handlePointerDown = (event: any) => {
+    const handlePointerDown = (event: ThreeEvent<PointerEvent>) => {
       event.stopPropagation();
       console.log('图片被按下！', img.url); // 调试信息
       if (img.url && onImageClick) {
@@ -176,13 +176,13 @@ function DirectImages({
     };
 
     // 鼠标悬停事件处理
-    const handlePointerOver = (event: any) => {
+    const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {
       event.stopPropagation();
       setIsHovered(true);
       document.body.style.cursor = 'pointer';
     };
 
-    const handlePointerOut = (event: any) => {
+    const handlePointerOut = (event: ThreeEvent<PointerEvent>) => {
       event.stopPropagation();
       setIsHovered(false);
       document.body.style.cursor = 'default';
@@ -395,7 +395,7 @@ const Banner = () => {
       setIsLoading(false);
     };
     loadImages();
-  }, []);
+  }, [images]);
 
   if (isLoading) return <LoadingSpinner />;
 
