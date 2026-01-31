@@ -9,26 +9,28 @@ export function getAssetPath(path: string): string {
     return path;
   }
   
-  // 检查是否在本地开发环境
-  // 在服务端渲染时，检查 process.env
-  // 在客户端时，检查 window.location
-  const isDevelopment = 
-    process.env.NODE_ENV === 'development' ||
-    (typeof window !== 'undefined' && 
-     (window.location.hostname === 'localhost' || 
-      window.location.hostname === '127.0.0.1'));
+  // basePath 配置（与 next.config.ts 中的保持一致）
+  const basePath = '/web-flashflash';
   
-  // 如果在开发环境，直接返回路径（不添加 basePath）
+  // 在客户端，检查当前 URL 是否已经包含 basePath
+  if (typeof window !== 'undefined') {
+    const currentPath = window.location.pathname;
+    // 如果当前路径已经包含 basePath，说明在生产环境，需要添加 basePath
+    if (currentPath.startsWith(basePath)) {
+      const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+      return `${basePath}${normalizedPath}`;
+    }
+    // 如果当前路径不包含 basePath，说明在开发环境，不需要添加
+    return path.startsWith('/') ? path : `/${path}`;
+  }
+  
+  // 服务端渲染时，检查 process.env
+  const isDevelopment = process.env.NODE_ENV === 'development';
   if (isDevelopment) {
     return path.startsWith('/') ? path : `/${path}`;
   }
   
-  // 生产环境：basePath 配置（与 next.config.ts 中的保持一致）
-  const basePath = '/web-flashflash';
-  
-  // 确保路径以 / 开头
+  // 生产环境：添加 basePath
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  
-  // 返回包含 basePath 的完整路径
   return `${basePath}${normalizedPath}`;
 }
