@@ -452,7 +452,7 @@ const Banner = () => {
         )}
 
         {/* 添加调试信息 */}
-        <div style={{
+        {/* <div style={{
           position: 'absolute',
           top: '10px',
           left: '10px',
@@ -472,7 +472,7 @@ const Banner = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </ImageErrorBoundary>
   );
