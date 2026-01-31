@@ -194,7 +194,7 @@ const About = () => {
           >
               {/* 图片 */}
               <Image
-                src={service.image}
+                src={getAssetPath(service.image)}
                 alt={service.alt}
                 fill
                 className="
@@ -277,7 +277,7 @@ const About = () => {
                 return (
                   <div key={colIndex} className='flex flex-col gap-2 2xl:gap-5'>
                     <Image
-                      src={item.image}
+                      src={getAssetPath(item.image)}
                       alt={item.alt}
                       width={500}
                       height={500}
