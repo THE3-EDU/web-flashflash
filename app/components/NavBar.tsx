@@ -101,7 +101,12 @@ export default function NavBar() {
 
   const isActive = (path: string) => {
     if (!mounted) return false;
-    return currentPath === path;
+    // 获取带 basePath 的完整路径
+    const fullPath = getAssetPath(path);
+    // 比较路径（移除尾部斜杠以确保一致性）
+    const normalizedCurrent = currentPath.replace(/\/$/, '');
+    const normalizedPath = fullPath.replace(/\/$/, '');
+    return normalizedCurrent === normalizedPath || normalizedCurrent === path;
   };
 
   const getWidth = () => {
@@ -159,7 +164,7 @@ export default function NavBar() {
               isSmallScreen ? 'w-full justify-center' : 'h-full'
             }`}>
               <a
-                href={item.path}
+                href={getAssetPath(item.path)}
                 className={`font-bold transition-colors duration-200 cursor-pointer ${
                   isActive(item.path)
                     ? 'text-[rgb(196,253,172)]'
