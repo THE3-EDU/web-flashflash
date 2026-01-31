@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { getAssetPath } from '../utils/path';
 
 const navs = [
   { name: 'HOME', path: '/home' },
@@ -146,6 +146,7 @@ export default function NavBar() {
         transform: `translateX(-50%) ${getTransform()}`,
         zIndex: 9999,
         overflow: 'hidden',
+        pointerEvents: 'auto', // 确保可以接收鼠标事件
       }}
       onClick={handleNavClick}
     >
@@ -157,27 +158,33 @@ export default function NavBar() {
             <li key={item.name} className={`flex items-center ${
               isSmallScreen ? 'w-full justify-center' : 'h-full'
             }`}>
-              <Link
+              <a
                 href={item.path}
-                className={`font-bold transition-colors duration-200 ${
+                className={`font-bold transition-colors duration-200 cursor-pointer ${
                   isActive(item.path)
                     ? 'text-[rgb(196,253,172)]'
                     : 'text-black'
                 }`}
                 style={{
                   zIndex: 9999,
+                  pointerEvents: 'auto',
                 }}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  // 点击链接后收起导航栏
+                  handleCollapse();
+                  // 让浏览器正常导航（不要 preventDefault）
+                }}
               >
                 {item.name}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
       ) : (
         <div className="w-full h-full flex items-center justify-center">
           <Image 
-            src="/Icons/nav.svg" 
+            src={getAssetPath("/Icons/nav.svg")} 
             alt="nav" 
             width={19} 
             height={19}

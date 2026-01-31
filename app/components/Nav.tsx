@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { getAssetPath } from '../utils/path';
 
 const FadeInUp = dynamic(() => import('./FadeInUp'), { ssr: false })
 
@@ -66,7 +67,7 @@ const Nav = () => {
       </div>
       {/* 右侧logo，始终显示 */}
       <div className="flex items-start w-[20vw] md:w-[10.6vw]">
-        <Image src="/Logo/logo.svg" alt="logo" width={200} height={50} />
+        <Image src={getAssetPath("/Logo/logo.svg")} alt="logo" width={200} height={50} />
       </div>
       </FadeInUp>
     </nav>

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { getAssetPath } from '../utils/path';
 import { useRef, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
@@ -67,38 +68,38 @@ export default function ContactPage() {
                                 
                                 <a href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" className="bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/ins.svg" alt="ins" width={27} height={27} className='w-[46%]'/>
+                                    <Image src={getAssetPath("/contact/icons/ins.svg")} alt="ins" width={27} height={27} className='w-[46%]'/>
                                 </FadeIn>
                                     
                                 </a>
                                 <a href="https://behance.net/your_behance" target="_blank" rel="noopener noreferrer" className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/be.svg" alt="be" width={30} height={24} className='w-[51%]'/>
+                                    <Image src={getAssetPath("/contact/icons/be.svg")} alt="be" width={30} height={24} className='w-[51%]'/>
                                 </FadeIn>
                                 </a>
                                 <a href="https://linkedin.com/in/your_linkedin" target="_blank" rel="noopener noreferrer" className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/in.svg" alt="in" width={27} height={27} className='w-[46%]'/>
+                                    <Image src={getAssetPath("/contact/icons/in.svg")} alt="in" width={27} height={27} className='w-[46%]'/>
                                 </FadeIn>
                                 </a>
                                 <a href="https://douyin.com/your_douyin" target="_blank" rel="noopener noreferrer" className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/dy.svg" alt="dy" width={24} height={24} className='w-[41%]'/>
+                                    <Image src={getAssetPath("/contact/icons/dy.svg")} alt="dy" width={24} height={24} className='w-[41%]'/>
                                 </FadeIn>
                                 </a>
                                 <a href="https://xiaohongshu.com/your_xiaohongshu" target="_blank" rel="noopener noreferrer" className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/xhs.svg" alt="xhs" width={40} height={24} className='w-[66%]'/>
+                                    <Image src={getAssetPath("/contact/icons/xhs.svg")} alt="xhs" width={40} height={24} className='w-[66%]'/>
                                 </FadeIn>
                                 </a>
                                 <a href="https://twitter.com/your_twitter" target="_blank" rel="noopener noreferrer" className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/x.svg" alt="x" width={27} height={27} className='w-[51%]' />
+                                    <Image src={getAssetPath("/contact/icons/x.svg")} alt="x" width={27} height={27} className='w-[51%]' />
                                 </FadeIn>
                                 </a>
                                 <a href="https://spotify.com/your_spotify" target="_blank" rel="noopener noreferrer" className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full">
                                 <FadeIn>
-                                    <Image src="/contact/icons/spotify.svg" alt="spotify" width={27} height={27} className='w-[44%]' />
+                                    <Image src={getAssetPath("/contact/icons/spotify.svg")} alt="spotify" width={27} height={27} className='w-[44%]' />
                                 </FadeIn>
                                 </a>
                                 <div className="aspect-square bg-black/66 rounded-md flex items-center justify-center w-full h-full"></div>
@@ -141,7 +142,7 @@ export default function ContactPage() {
                         {/* 背景图层 */}
                         <div className="absolute inset-0">
                             <Image
-                            src="/contact/map.png"
+                            src={getAssetPath("/contact/map.png")}
                             alt=""
                             fill
                             className="object-cover opacity-30"
@@ -181,7 +182,7 @@ export default function ContactPage() {
                                         <div className="text-[11px] text-gray-200 leading-[1] text-left">
                                             Directions<br/>Google Maps
                                         </div>
-                                        <Image src="/contact/icons/map.svg" alt="map" width={20} height={20} />
+                                        <Image src={getAssetPath("/contact/icons/map.svg")} alt="map" width={20} height={20} />
                                     </div>
                                 </FadeIn>
                             </button>
@@ -193,7 +194,7 @@ export default function ContactPage() {
                             {/* 背景图层 */}
                             <div className="absolute inset-0">
                                 <Image
-                                    src="/contact/place.png"
+                                    src={getAssetPath("/contact/place.png")}
                                     alt=""
                                     fill
                                     className="object-cover opacity-75 "
@@ -226,7 +227,7 @@ export default function ContactPage() {
                                         }}
                                     >
                                         <Image
-                                            src="/contact/icons/phone.svg"
+                                            src={getAssetPath("/contact/icons/phone.svg")}
                                             alt="phone"
                                             width={32}
                                             height={32}
@@ -252,7 +253,7 @@ export default function ContactPage() {
                                         }}
                                     >
                                         <Image
-                                            src="/contact/icons/email.svg"
+                                            src={getAssetPath("/contact/icons/email.svg")}
                                             alt="email"
                                             width={32}
                                             height={32}

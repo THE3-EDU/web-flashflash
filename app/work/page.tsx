@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { getAssetPath } from '../utils/path'
 
 const Work = () => {
 
@@ -10,7 +11,7 @@ const Work = () => {
     <div className="w-full bg-black relative min-w-[1000px] blackbg">
       <div className="flex items-center justify-center">
         <Image
-          src="/about/bg.png"
+          src={getAssetPath("/about/bg.png")}
           alt="about"
           height={1000}
           width={500}
@@ -19,7 +20,7 @@ const Work = () => {
         />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 h-[100vh]">
-        <Image src="/about/title.svg" alt="about" width={1000} height={1000} className="w-[70%] h-[100%]" />
+        <Image src={getAssetPath("/about/title.svg")} alt="about" width={1000} height={1000} className="w-[70%] h-[100%]" />
       </div>
 
       {/* 公司介绍*/}
@@ -184,16 +185,16 @@ const Work = () => {
         <div className="my-6 2xl:my-12 overflow-hidden w-full flex justify-center items-center py-[3vh]">
           <div className="flex animate-scroll-horizontal">
           <div className="flex-shrink-0 w-full">
-            <Image src="/about/brands.svg" alt="1" width={1000} height={200} className="h-[30vh] w-full" />
+            <Image src={getAssetPath("/about/brands.svg")} alt="1" width={1000} height={200} className="h-[30vh] w-full" />
           </div>
           <div className="flex-shrink-0 w-full">
-            <Image src="/about/brands.svg" alt="2" width={1000} height={200} className="h-[30vh] w-full" />
+            <Image src={getAssetPath("/about/brands.svg")} alt="2" width={1000} height={200} className="h-[30vh] w-full" />
           </div>
           <div className="flex-shrink-0 w-full">
-            <Image src="/about/brands.svg" alt="1" width={1000} height={200} className="h-[30vh] w-full" />
+            <Image src={getAssetPath("/about/brands.svg")} alt="1" width={1000} height={200} className="h-[30vh] w-full" />
           </div>
           <div className="flex-shrink-0 w-full">
-            <Image src="/about/brands.svg" alt="2" width={1000} height={200} className="h-[30vh] w-full" />
+            <Image src={getAssetPath("/about/brands.svg")} alt="2" width={1000} height={200} className="h-[30vh] w-full" />
           </div>
           </div>
         </div>
@@ -266,7 +267,7 @@ const Work = () => {
         </div>
         <div className='mt-[20vh]'>
           <Image
-            src="/about/logo.png"
+            src={getAssetPath("/about/logo.png")}
             alt="test"
             width={1900}
             height={1000}
@@ -278,7 +279,7 @@ const Work = () => {
       {/* 全页面半透明覆盖层 */}
       {/* <div className="absolute inset-0 bg-opacity-20 pointer-events-none z-50 -mt-204">
         <Image
-          src="/about/test.png"
+          src={getAssetPath("/about/test.png")}
           alt="overlay"
           width={1920}
           height={3000}

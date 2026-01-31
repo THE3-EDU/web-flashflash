@@ -10,13 +10,15 @@ export function getAssetPath(path: string): string {
   }
   
   // 检查是否在本地开发环境
+  // 在服务端渲染时，检查 process.env
+  // 在客户端时，检查 window.location
   const isDevelopment = 
-    typeof window !== 'undefined' && 
-    (window.location.hostname === 'localhost' || 
-     window.location.hostname === '127.0.0.1' ||
-     process.env.NODE_ENV === 'development');
+    process.env.NODE_ENV === 'development' ||
+    (typeof window !== 'undefined' && 
+     (window.location.hostname === 'localhost' || 
+      window.location.hostname === '127.0.0.1'));
   
-  // 如果在开发环境，直接返回路径
+  // 如果在开发环境，直接返回路径（不添加 basePath）
   if (isDevelopment) {
     return path.startsWith('/') ? path : `/${path}`;
   }
