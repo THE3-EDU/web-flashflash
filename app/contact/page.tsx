@@ -46,7 +46,7 @@ export default function ContactPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
             className="relative h-[100vh] min-h-[500px] 2xl:min-h-[700px] w-full min-w-[750px] bg-cover bg-center flex flex-col items-center justify-center py-32"
-            style={{ backgroundImage: 'url(/contact/bg.png)' }}
+            style={{ backgroundImage: `url(${getAssetPath('/contact/bg.png')})` }}
         >
     {/* <div className="relative h-[100vh] min-h-[500px] 2xl:min-h-[700px] w-full min-w-[750px] bg-cover bg-center flex flex-col items-center justify-center py-32" style={{backgroundImage: 'url(/contact/bg.png)'}}> */}
         <div className="w-[54vw] h-[25vw] max-w-[1033px] max-h-[484px] min-w-[700px] min-h-[328px] 2xl:min-w-[800px] 2xl:min-h-[470px]">
@@ -279,7 +279,7 @@ export default function ContactPage() {
                                 {[1, 2, 3, 4, 5, 6].map((i) => (
                                 <div key={`original-${i}`} className="w-full h-[100px]">
                                     <Image
-                                    src={`/contact/member/${i}.png`}
+                                    src={getAssetPath(`/contact/member/${i}.png`)}
                                     alt={`member${i}`}
                                     width={100}
                                     height={100}
@@ -290,7 +290,7 @@ export default function ContactPage() {
                                 {[1, 2, 3, 4, 5, 6].map((i) => (
                                 <div key={`copy-${i}`} className="w-full h-[100px]">
                                     <Image
-                                    src={`/contact/member/${i}.png`}
+                                    src={getAssetPath(`/contact/member/${i}.png`)}
                                     alt={`member-copy-${i}`}
                                     width={100}
                                     height={100}
