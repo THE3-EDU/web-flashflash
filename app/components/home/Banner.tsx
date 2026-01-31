@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { TextureLoader } from 'three';
 import { OrbitControls } from '@react-three/drei';
 import { FlashLogo } from './Text';
+import { getAssetPath } from '../../utils/path';
 interface ImageItem {
   src: string;
   position: [number, number, number];
@@ -324,49 +325,49 @@ const Banner = () => {
   // Banner 组件
   const images: ImageItem[] = [
     {
-      src: "/Banner/COOPER2.webp",
+      src: getAssetPath("/Banner/COOPER2.webp"),
       position: [7, 3, 1] as [number, number, number],
       rotation: [-Math.PI/8, -Math.PI/2, -Math.PI/8] as [number, number, number],
       size: 2.3,
       url: "https://www.cooperlighting.com"
     },
     { 
-      src: "/Banner/COOPER.webp", 
+      src: getAssetPath("/Banner/COOPER.webp"), 
       position: [6, 0.5, -2],
       rotation: [-Math.PI/10, -Math.PI/3, -Math.PI/16], 
       size: 2.5,
       url: "https://www.cooperlighting.com"
     },
     { 
-      src: "/Banner/NORTH.webp", 
+      src: getAssetPath("/Banner/NORTH.webp"), 
       position: [6.5, -2, 0.5],
       rotation: [0, -Math.PI/3, 0], 
       size: 2.5,
       url: "https://www.northface.com"
     },
     { 
-      src: "/Banner/PUMA.webp", 
+      src: getAssetPath("/Banner/PUMA.webp"), 
       position: [3, 4, -5],
       rotation: [Math.PI/8, -Math.PI/4, Math.PI/16], 
       size: 3,
       url: "https://www.puma.com"
     },
     { 
-      src: "/Banner/LENVEO.webp", 
+      src: getAssetPath("/Banner/LENVEO.webp"), 
       position: [-3, 1, -5],
       rotation: [0, Math.PI/6, 0], 
       size: 3,
       url: "https://www.lenovo.com"
     },
     { 
-      src: "/Banner/LINSY.webp", 
+      src: getAssetPath("/Banner/LINSY.webp"), 
       position: [-4, -3, -0.5],
       rotation: [-Math.PI/3.5, Math.PI/6, Math.PI/10], 
       size: 4,
       url: "https://www.linsy.com"
     },
     { 
-      src: "/Banner/IKEA.webp", 
+      src: getAssetPath("/Banner/IKEA.webp"), 
       position: [-7, 1, 0],
       rotation: [0, Math.PI/3, 0], 
       size: 3,

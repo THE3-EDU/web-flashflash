@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { Svg } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
+import { getAssetPath } from "../../utils/path";
 
 
 type FlashLogoProps = React.ComponentProps<'group'> & {
@@ -52,7 +53,7 @@ export const FlashLogo = forwardRef<THREE.Group, FlashLogoProps>(
     return (
       <group ref={ref} {...props}>
         <Svg 
-          src="/Logo/logo.svg" 
+          src={getAssetPath("/Logo/logo.svg")} 
           scale={[scale, scale, scale]}
           position={[centerX, 0.5, 0]}
         />
